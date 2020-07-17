@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
+<robot name="Seeker" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo"/>
+
+  <link
+    name="Chasis">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="12.4859505071521" />
+      <inertia
+        ixx="1.01360446250522"
+        ixy="0.001164833306525"
+        ixz="0.00225910280162558"
+        iyy="1.49025272199556"
+        iyz="0.0324768843585427"
+        izz="0.882066585115218" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/Chasis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/Chasis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="R1">
+    <inertial>
+      <origin
+        xyz="0.210440587273909 -0.0379714152675754 -0.328866275829079"
+        rpy="0 0 0" />
+      <mass
+        value="12.9137929918589" />
+      <inertia
+        ixx="0.882620394058778"
+        ixy="-0.0324752307095955"
+        ixz="0.00225913559885805"
+        iyy="1.49168595124188"
+        iyz="-0.00109978408476834"
+        izz="1.01543088126766" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R1"
+    type="fixed">
+    <origin
+      xyz="0.60388 -0.33906 0.29147"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="Chasis" />
+    <child
+      link="R1" />
+    <axis
+      xyz="0 0 1" />
+    <!--limit lower="-1.0472" upper="1.0472" effort="200" velocity="200"/-->
+  </joint>
+  <link
+    name="W1">
+    <inertial>
+      <origin
+        xyz="0.0246508928973738 8.20179979488245E-10 -1.92021937239772E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136474" />
+      <inertia
+        ixx="0.00218210262036127"
+        ixy="8.24494283706725E-12"
+        ixz="-5.60443093753476E-11"
+        iyy="0.00122313873195121"
+        iyz="-1.92943006813466E-11"
+        izz="0.00122313883133883" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W1.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W1"
+    type="continuous">
+    <origin
+      xyz="-0.088281 0.079057 0.015"
+      rpy="0.10412 -1.5708 0" />
+    <parent
+      link="R1" />
+    <child
+      link="W1" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="W2">
+    <inertial>
+      <origin
+        xyz="0.0246508928973738 8.20175566351722E-10 -1.92022331368946E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136473" />
+      <inertia
+        ixx="0.00218210262036126"
+        ixy="8.24494287209551E-12"
+        ixz="-5.60443095098206E-11"
+        iyy="0.0012231387319512"
+        iyz="-1.92943015622608E-11"
+        izz="0.00122313883133883" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W2.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W2"
+    type="continuous">
+    <origin
+      xyz="0.085535 0.079057 0.015"
+      rpy="0.7362 -1.5708 0" />
+    <parent
+      link="R1" />
+    <child
+      link="W2" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="R2">
+    <inertial>
+      <origin
+        xyz="-0.247254399515214 -0.036399937024154 -0.328866275833932"
+        rpy="0 0 0" />
+      <mass
+        value="12.9137929918589" />
+      <inertia
+        ixx="0.882620394058778"
+        ixy="-0.0324752307095952"
+        ixz="0.00225913559885811"
+        iyy="1.49168595124188"
+        iyz="-0.00109978408476829"
+        izz="1.01543088126766" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R2"
+    type="fixed">
+    <origin
+      xyz="0.60388 -0.81244 0.29309"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="Chasis" />
+    <child
+      link="R2" />
+    <axis
+      xyz="0 0 1" />
+    <!--limit lower="-1.0472" upper="1.0472" effort="200" velocity="200"/-->
+  </joint>
+  <link
+    name="W3">
+    <inertial>
+      <origin
+        xyz="-9.06349550966468E-10 -1.88108628673689E-09 -0.0246508928974157"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136475" />
+      <inertia
+        ixx="0.00122313873390233"
+        ixy="2.37145574445013E-11"
+        ixz="1.07763381668903E-11"
+        iyy="0.00122313882938771"
+        iyz="5.56130763470275E-11"
+        izz="0.00218210262036127" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W3.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W3"
+    type="continuous">
+    <origin
+      xyz="-0.088281 0.079057 0.015"
+      rpy="3.1416 0 2.565" />
+    <parent
+      link="R2" />
+    <child
+      link="W3" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="W4">
+    <inertial>
+      <origin
+        xyz="-9.06371866449263E-10 -1.88107310283847E-09 -0.0246508928974158"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136476" />
+      <inertia
+        ixx="0.00122313873390233"
+        ixy="2.37145570108205E-11"
+        ixz="1.07763382247459E-11"
+        iyy="0.00122313882938771"
+        iyz="5.56130761899959E-11"
+        izz="0.00218210262036127" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W4.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W4"
+    type="continuous">
+    <origin
+      xyz="0.085535 0.079057 0.015"
+      rpy="3.1416 0 -0.49821" />
+    <parent
+      link="R2" />
+    <child
+      link="W4" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="R3">
+    <inertial>
+      <origin
+        xyz="-0.000112134603345082 -0.0396843310970351 0.00394210672254929"
+        rpy="0 0 0" />
+      <mass
+        value="0.427842484706731" />
+      <inertia
+        ixx="0.0005538089435605"
+        ixy="-1.6536489469952E-06"
+        ixz="-3.27972324773465E-08"
+        iyy="0.00143322924632072"
+        iyz="6.50492217566076E-05"
+        izz="0.00182641876243821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R3"
+    type="fixed">
+    <origin
+      xyz="-0.076119 -0.33919 0.29409"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="Chasis" />
+    <child
+      link="R3" />
+    <axis
+      xyz="0 0 1" />
+    <!--limit lower="-1.0472" upper="1.0472" effort="200" velocity="200"/-->
+  </joint>
+  <link
+    name="W5">
+    <inertial>
+      <origin
+        xyz="0.0246508928973624 8.20185974692578E-10 -1.92021992750924E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136473" />
+      <inertia
+        ixx="0.00218210262036126"
+        ixy="8.24494263685625E-12"
+        ixz="-5.60443094778343E-11"
+        iyy="0.0012231387319512"
+        iyz="-1.92943015080507E-11"
+        izz="0.00122313883133883" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W5.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W5"
+    type="continuous">
+    <origin
+      xyz="0.085535 -0.079057 -0.015"
+      rpy="1.217 1.5708 0" />
+    <parent
+      link="R3" />
+    <child
+      link="W5" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="W6">
+    <inertial>
+      <origin
+        xyz="0.0246508928973643 8.20185308558763E-10 -1.92022059364305E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136473" />
+      <inertia
+        ixx="0.00218210262036126"
+        ixy="8.24494261598964E-12"
+        ixz="-5.60443096569971E-11"
+        iyy="0.0012231387319512"
+        iyz="-1.92943012641052E-11"
+        izz="0.00122313883133883" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W6.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W6"
+    type="continuous">
+    <origin
+      xyz="-0.088281 -0.079057 -0.015"
+      rpy="1.2855 1.5708 0" />
+    <parent
+      link="R3" />
+    <child
+      link="W6" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="R4">
+    <inertial>
+      <origin
+        xyz="-0.000112134603345582 -0.0396843310970351 0.00394210672254927"
+        rpy="0 0 0" />
+      <mass
+        value="0.427842484706731" />
+      <inertia
+        ixx="0.000553808943560501"
+        ixy="-1.653648946983E-06"
+        ixz="-3.27972324764283E-08"
+        iyy="0.00143322924632072"
+        iyz="6.50492217566075E-05"
+        izz="0.00182641876243821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R4.STL" />
+      </geometry>
+      <material
+        name="">     
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/R4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R4"
+    type="fixed">
+    <origin
+      xyz="-0.0761185171081191 -0.811047293547409 0.295629457815647"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="Chasis" />
+    <child
+      link="R4" />
+    <axis
+      xyz="0 0 1" />
+    <!--limit lower="-1.0472" upper="1.0472" effort="200" velocity="200"/-->
+  </joint>
+  <link
+    name="W7">
+    <inertial>
+      <origin
+        xyz="-9.06364761021905E-10 -1.88107751597499E-09 -0.0246508928973643"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136472" />
+      <inertia
+        ixx="0.00122313873390232"
+        ixy="2.37145575529216E-11"
+        ixz="1.07763378060257E-11"
+        iyy="0.00122313882938771"
+        iyz="5.56130764800201E-11"
+        izz="0.00218210262036126" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W7.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W7"
+    type="continuous">
+    <origin
+      xyz="0.085535 -0.079057 -0.015"
+      rpy="0 0 -2.7625" />
+    <parent
+      link="R4" />
+    <child
+      link="W7" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="W8">
+    <inertial>
+      <origin
+        xyz="-9.06364872044207E-10 -1.8810777380196E-09 -0.0246508928973643"
+        rpy="0 0 0" />
+      <mass
+        value="0.624978153136473" />
+      <inertia
+        ixx="0.00122313873390232"
+        ixy="2.37145578510772E-11"
+        ixz="1.07763379397326E-11"
+        iyy="0.00122313882938771"
+        iyz="5.56130765429819E-11"
+        izz="0.00218210262036126" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mybot_description/meshes/W8.STL" />
+      </geometry>
+      <contact_coefficients mu="0.7" kp="0.1" kd="0.1"/>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1000.0</mu>
+            <mu2>1000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.01</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="W8"
+    type="continuous">
+    <origin
+      xyz="-0.088281 -0.079057 -0.015"
+      rpy="0 0 -2.8209" />
+    <parent
+      link="R4" />
+    <child
+      link="W8" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+
+<link name="hokuyo">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mybot_description/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+ <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 0 1" />
+    <origin xyz="0.25 -0.985 0.42" rpy="0 0 -1.5708"/>
+    <parent link="Chasis"/>
+    <child link="hokuyo"/>
+  </joint>
+
+</robot>
